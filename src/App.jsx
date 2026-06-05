@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { racas } from "./data/racas"
-import RaceSelector from "./components/RaceSelector"
-import RaceCard from "./components/RaceCard"
+import RaceSelector from "./components/Race/RaceSelector"
+import RaceCard from "./components/Race/RaceCard"
 import "./App.css"
 
 function App() {
