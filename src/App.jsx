@@ -4,7 +4,7 @@ import RaceSelector from "./components/Race/RaceSelector"
 import RaceCard from "./components/Race/RaceCard"
 import "./App.css"
 
-function App() {
+export default function App() {
   const [racaSelecionada, setRacaSelecionada] = useState(null)
 
   const mostrarRaca = (index) => {
@@ -32,4 +32,3 @@ function App() {
   )
 }
 
-export default App
