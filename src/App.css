@@ -1,168 +1,551 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  min-height:100vh;
-  font-family:'Orbitron',sans-serif;
-  overflow-x:hidden;
+:root {
+  --orange: #ff9d00;
+  --orange-light: #ffc14d;
+  --blue: #00bfff;
+  --blue-light: #62e8ff;
+  --dark: #030712;
+  --panel: rgba(8, 15, 30, 0.82);
+  --line: rgba(98, 232, 255, 0.28);
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: 'Orbitron', sans-serif;
+
+  color: white;
+
+  overflow-x: hidden;
 
   background:
-  radial-gradient(circle at top,#ffae00 0%,transparent 30%),
-  radial-gradient(circle at bottom,#0099ff 0%,transparent 40%),
-  #050816;
-
-  color:rgb(255, 255, 255);
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255, 157, 0, 0.22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(0, 191, 255, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 50%,
+      rgba(255, 90, 0, 0.10),
+      transparent 30%
+    ),
+    #030712;
 }
 
-.app{
-  width:100%;
-  min-height:100vh;
+.app {
+  width: 100%;
+  min-height: 100vh;
 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  padding:40px 20px;
-  position:relative;
+  padding: 55px 20px 80px;
+
+  position: relative;
+
+  isolation: isolate;
 }
 
-.energy-bg{
-  position:fixed;
-  inset:0;
+.energy-bg {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -1;
+
   background:
-  repeating-radial-gradient(
-    circle,
-    rgba(255,255,255,.02),
-    rgba(255,255,255,.02) 2px,
-    transparent 2px,
-    transparent 40px
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(0, 191, 255, 0.025) 50%,
+      transparent 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 80px,
+      rgba(255,255,255,0.018) 81px,
+      transparent 82px
+    );
+
+  animation: energyMove 10s linear infinite;
+}
+
+@keyframes energyMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(80px);
+  }
+}
+
+h1 {
+  position: relative;
+
+  margin-bottom: 42px;
+
+  text-align: center;
+
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  color: #fff;
+
+  text-shadow:
+    0 0 8px rgba(255, 174, 0, 0.9),
+    0 0 20px rgba(255, 110, 0, 0.7),
+    0 0 45px rgba(255, 70, 0, 0.35);
+}
+
+h1::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -18px;
+
+  width: 120px;
+  height: 3px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--orange),
+    var(--orange-light),
+    var(--orange),
+    transparent
   );
 
-  animation: pulse 6s infinite linear;
-  z-index:-1;
+  box-shadow:
+    0 0 8px var(--orange),
+    0 0 20px rgba(255,157,0,.6);
 }
 
-@keyframes pulse{
-  from{
-    transform:scale(1);
-  }
-  to{
-    transform:scale(1.3);
-  }
+.dbz-select {
+  width: 380px;
+  max-width: 95%;
+
+  padding: 17px 20px;
+
+  appearance: none;
+
+  border: 1px solid rgba(0, 191, 255, 0.35);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  color: #fff;
+
+  font-family: 'Orbitron', sans-serif;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 191, 255, 0.10),
+      rgba(255, 157, 0, 0.08)
+    ),
+    rgba(5, 12, 25, 0.92);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 8px 30px rgba(0,0,0,.35),
+    inset 0 0 20px rgba(0,191,255,.04);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 }
 
-h1{
-  font-size:3rem;
-  text-align:center;
-  margin-bottom:40px;
+.dbz-select:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(0, 191, 255, 0.8);
+
+  box-shadow:
+    0 0 15px rgba(0,191,255,.22),
+    0 10px 35px rgba(0,0,0,.45),
+    inset 0 0 25px rgba(0,191,255,.07);
+}
+
+.dbz-select:focus {
+  border-color: var(--blue);
+
+  box-shadow:
+    0 0 0 2px rgba(0,191,255,.12),
+    0 0 25px rgba(0,191,255,.25);
+}
+
+.dbz-select option {
+  background: #080e1d;
+
+  color: white;
+}
+
+.race-card {
+  position: relative;
+
+  width: 720px;
+  max-width: 95%;
+
+  margin-top: 42px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 22, 42, .96),
+      rgba(3, 8, 18, .96)
+    );
+
+  border: 1px solid rgba(98, 232, 255, .35);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.55),
+    0 0 25px rgba(0,191,255,.08),
+    inset 0 0 40px rgba(0,191,255,.025);
+
+  animation: cardShow .45s ease;
+}
+
+.race-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--blue),
+    var(--orange),
+    var(--blue),
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px var(--blue),
+    0 0 20px var(--orange);
+}
+
+.race-title {
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border-bottom: 1px solid rgba(98, 232, 255, .18);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,191,255,.05),
+      rgba(255,157,0,.09),
+      rgba(0,191,255,.05)
+    );
+
+  color: #fff;
+
+  font-size: 0.9rem;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
 
   text-shadow:
-  0 0 10px #ffb300,
-  0 0 20px #ff8800,
-  0 0 40px #ff5500;
+    0 0 8px rgba(255,255,255,.25);
 }
 
-.dbz-select{
-  width:350px;
-  max-width:95%;
+.energy-icon {
+  color: var(--orange-light);
 
-  padding:16px;
-  border:none;
-  border-radius:18px;
+  font-size: 20px;
 
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(12px);
+  animation: energyPulse 1.8s infinite ease-in-out;
 
-  color:rgb(0, 0, 0);
-  font-size:1rem;
-
-  outline:none;
-
-  border:1px solid rgba(255,255,255,.15);
-
-  transition:.3s;
+  filter:
+    drop-shadow(0 0 5px #ff9d00)
+    drop-shadow(0 0 12px #ff6600);
 }
 
-.dbz-select:hover{
-  transform:translateY(-3px);
-  box-shadow:
-  0 0 20px #00d4ff,
-  0 0 40px rgba(0,212,255,.5);
-}
+@keyframes energyPulse {
+  0%, 100% {
+    transform: scale(1);
 
-.race-card{
-  width:700px;
-  max-width:95%;
-
-  margin-top:40px;
-  padding:30px;
-
-  border-radius:30px;
-
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(20px);
-
-  border:1px solid rgba(255,255,255,.15);
-
-  box-shadow:
-  0 0 25px rgba(0,170,255,.4),
-  0 0 60px rgba(255,153,0,.25);
-
-  animation: cardShow .4s ease;
-}
-
-@keyframes cardShow{
-  from{
-    opacity:0;
-    transform:translateY(30px);
+    opacity: .8;
   }
-  to{
-    opacity:1;
-    transform:translateY(0);
+
+  50% {
+    transform: scale(1.2);
+
+    opacity: 1;
   }
 }
 
-.race-card h2{
-  text-align:center;
-  margin-bottom:25px;
+.race-content {
+  display: grid;
 
-  font-size:2rem;
+  grid-template-columns: 220px 1fr;
 
-  color:#ffae00;
+  height: 220px;
+}
+
+.race-image {
+  position: relative;
+
+  width: 220px;
+  height: 220px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-right: 1px solid rgba(98, 232, 255, .18);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,191,255,.10),
+      transparent 65%
+    );
+}
+
+.race-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.05),
+      transparent 35%,
+      transparent 65%,
+      rgba(0,191,255,.04)
+    );
+}
+
+.race-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform .5s ease;
+}
+
+.race-card:hover .race-image img {
+  transform: scale(1.04);
+}
+
+.race-info {
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.race-info p {
+  position: relative;
+
+  flex: 1;
+
+  margin: 0;
+
+  padding: 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-bottom: 1px solid rgba(98, 232, 255, .12);
+
+  color: #d8e7f2;
+
+  font-family: 'Orbitron', sans-serif;
+
+  font-size: 0.72rem;
+
+  letter-spacing: .4px;
+
+  transition:
+    background .25s ease,
+    padding-left .25s ease;
+}
+
+.race-info p:last-child {
+  border-bottom: none;
+}
+
+.race-info p:hover {
+  padding-left: 23px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,191,255,.08),
+      transparent
+    );
+}
+
+.race-info p::before {
+  content: "";
+
+  width: 3px;
+  height: 20px;
+
+  margin-right: 10px;
+
+  border-radius: 5px;
+
+  background: var(--blue);
+
+  box-shadow:
+    0 0 8px rgba(0,191,255,.8);
+}
+
+.race-info strong {
+  margin-right: 7px;
+
+  color: var(--blue-light);
+
+  font-weight: 700;
 
   text-shadow:
-  0 0 10px #ffae00,
-  0 0 20px #ff6600;
+    0 0 8px rgba(0,191,255,.35);
+
+  flex-shrink: 0;
 }
 
-.info-grid{
-  display:grid;
-  gap:15px;
+@keyframes cardShow {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(.98);
+
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
 }
 
-.info-grid p{
-  padding:14px;
-  border-radius:14px;
+@media (max-width: 650px) {
 
-  background:rgba(255,255,255,.05);
+  .app {
+    padding: 35px 15px 60px;
+  }
 
-  transition:.3s;
-}
+  h1 {
+    font-size: 1.7rem;
 
-.info-grid p:hover{
-  transform:translateX(10px);
+    letter-spacing: 1px;
 
-  background:rgba(255,255,255,.1);
+    margin-bottom: 35px;
+  }
 
-  box-shadow:
-  0 0 15px rgba(0,200,255,.4);
-}
+  .dbz-select {
+    width: 100%;
 
-strong{
-  color:#00d4ff;
+    font-size: .75rem;
+  }
+
+  .race-card {
+    width: 100%;
+
+    margin-top: 30px;
+  }
+
+  .race-content {
+    grid-template-columns: 130px 1fr;
+
+    height: 180px;
+  }
+
+  .race-image {
+    width: 130px;
+    height: 180px;
+  }
+
+  .race-info p {
+    padding: 0 10px;
+
+    font-size: .58rem;
+  }
+
+  .race-info p:hover {
+    padding-left: 14px;
+  }
+
+  .race-info strong {
+    margin-right: 4px;
+  }
 }

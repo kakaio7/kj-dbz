@@ -1,7 +1,10 @@
 import { useState } from "react"
+
 import { racas } from "./data/racas"
+
 import RaceSelector from "./components/Race/RaceSelector"
 import RaceCard from "./components/Race/RaceCard"
+
 import "./App.css"
 
 export default function App() {
@@ -18,17 +21,22 @@ export default function App() {
 
   return (
     <div className="app">
+
       <div className="energy-bg"></div>
 
-      <h1>🐉 UNIVERSO DAS RAÇAS DBZ 🐉</h1>
+      <h1>
+        🐉 UNIVERSO DAS RAÇAS DBZ 🐉
+      </h1>
 
       <RaceSelector
         racas={racas}
         onSelect={mostrarRaca}
       />
 
-      <RaceCard raca={racaSelecionada} />
+      <RaceCard
+        raca={racaSelecionada}
+      />
+
     </div>
   )
 }
-

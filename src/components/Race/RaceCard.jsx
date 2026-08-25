@@ -3,15 +3,47 @@ export default function RaceCard({ raca }) {
 
   return (
     <div className="race-card">
-      <h2>{raca.raca}</h2>
 
-      <div className="info-grid">
-        <p><strong>ID:</strong> {raca.id}</p>
-        <p><strong>Origem:</strong> {raca.origem}</p>
-        <p><strong>Habilidade:</strong> {raca.habilidade}</p>
-        <p><strong>Personalidade:</strong> {raca.personalidade}</p>
-        <p><strong>Transformações:</strong> {raca.transformacoes}</p>
+      <div className="race-title">
+        <span>{raca.raca}</span>
+        <span className="energy-icon">⚡</span>
       </div>
+
+      <div className="race-content">
+
+        <div className="race-image">
+          <img
+            src={raca.imagem}
+            alt={raca.raca}
+          />
+        </div>
+
+        <div className="race-info">
+
+          <p>
+            <strong>Origem:</strong>
+            {raca.origem}
+          </p>
+
+          <p>
+            <strong>Habilidade:</strong>
+            {raca.habilidade}
+          </p>
+
+          <p>
+            <strong>Personalidade:</strong>
+            {raca.personalidade}
+          </p>
+
+          <p>
+            <strong>Transformações:</strong>
+            {raca.transformacoes}
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
   )
 }
