@@ -1,0 +1,10 @@
+Coloque as imagens das sete esferas nesta pasta com estes nomes exatos:
+esfera-1.png
+esfera-2.png
+esfera-3.png
+esfera-4.png
+esfera-5.png
+esfera-6.png
+esfera-7.png
+
+Pode usar PNG com fundo transparente. Se uma imagem ainda não existir, o site mostra um espaço reservado com a quantidade de estrelas.
