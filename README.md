@@ -1,31 +1,49 @@
-# KJ-DBZ
+<div align="center">
+  <img src="./public/favicon.svg" width="88" alt="Emblema KJ-DBZ" />
 
-Aplicativo front-end em React + Vite para explorar raças, poderes e colecionáveis do universo Dragon Ball.
+  # KJ-DBZ
 
-## Segurança e boas práticas
+  ### ARQUIVO INTERGALÁCTICO
 
-- Nenhuma chave secreta, token ou API key foi deixada no front-end.
-- Caso seja adicionado um backend real no futuro, qualquer credencial sensível deve ficar em variáveis de ambiente do servidor e nunca no bundle do cliente.
-- O projeto usa armazenamento local somente para dados não-sensíveis do navegador (favoritos e coleção local).
-- A coleção das esferas funciona como uma caça progressiva: o Radar do Dragão libera um enigma por vez, e somente a resposta correta confirma a esfera. Uma dica pode ser aberta em cada enigma; respostas erradas não consomem tentativas.
-- Ao completar a coleção, o Guardião do Desejo abre uma cena animada e permite registrar um único desejo neste navegador. Como é uma experiência sem backend, esse progresso local não é uma recompensa protegida por conta.
-- O build e o preview têm cabeçalhos de segurança para reduzir risco de execução de conteúdo malicioso.
+  **Explore raças, descubra transformações e reúna as Esferas do Dragão.**
 
-## Estrutura
+  Uma experiência interativa feita por fãs e inspirada no universo de Dragon Ball.
+</div>
 
-- `src/config/app.js`: configurações públicas do app e chaves de armazenamento.
-- `src/utils/storage.js`: leitura e escrita sanitizadas de dados no localStorage.
-- `src/components`: componentes visuais da interface.
-- `public/images`: imagens locais do projeto.
+---
 
-## Variáveis de ambiente
+## Sobre o projeto
 
-Use o arquivo `.env.example` como referência. Nunca envie arquivos `.env` para o repositório.
+O **KJ-DBZ** é um arquivo interativo dedicado à exploração de raças, habilidades e transformações inspiradas no universo de Dragon Ball.
 
-## Caça às esferas
+Mais do que reunir informações, o projeto transforma essa exploração em uma experiência: pesquise personagens e raças, consulte fichas, experimente transformações e acompanhe sua jornada em busca das Esferas do Dragão.
 
-A versão da coleção foi atualizada para suportar os enigmas. O progresso manual salvo por versões anteriores é reiniciado uma vez; o desejo já concedido continua salvo separadamente no navegador.
+## O que você pode fazer
 
-## Imagens incluídas
+- **Explorar raças:** pesquise, filtre e organize os registros disponíveis.
+- **Consultar fichas:** descubra detalhes sobre origem, habilidades e características.
+- **Usar o Scouter:** selecione uma raça e explore suas informações.
+- **Experimentar transformações:** navegue por diferentes formas e evoluções.
+- **Reunir as Esferas do Dragão:** avance pela coleção e acompanhe seu progresso.
+- **Salvar seu progresso:** mantenha favoritos e dados da coleção no armazenamento local do navegador.
 
-As imagens locais das transformações ficam em `public/images/transformations/`. As sete imagens das Esferas do Dragão ficam em `public/images/dragon-balls/` como SVGs individuais. As imagens de transformação usam a arte Saiyajin já presente no projeto original como imagem provisória local; você pode substituir cada arquivo PNG pela arte específica de cada forma sem alterar o código.
+## A proposta
+
+Este projeto nasceu da vontade de unir tecnologia e paixão por Dragon Ball em uma experiência própria, visual e interativa.
+
+O KJ-DBZ também é um projeto de estudo e desenvolvimento front-end, criado para praticar React, construção de interfaces, organização de componentes e recursos interativos.
+
+## Tecnologias
+
+- React
+- Vite
+- JavaScript
+- CSS
+
+## Executar localmente
+
+Você precisa ter o Node.js instalado.
+
+```bash
+npm install
+npm run dev
