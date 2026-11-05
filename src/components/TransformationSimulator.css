@@ -276,13 +276,13 @@
   font-size: 10px;
 }
 
-.transformation-reset {
+.transformation-section .transformation-reset {
   grid-column: 1 / -1;
   padding: 13px 18px;
-  border: 1px solid #ff8c2450;
+  border: 1px solid #ffffff24;
   border-radius: 9px;
-  color: #ffb46d;
-  background: #ff8c2410;
+  color: #e5e8ee;
+  background: #ffffff08;
   font: inherit;
   font-size: 12px;
   font-weight: 800;
@@ -290,9 +290,106 @@
   transition: 0.2s ease;
 }
 
-.transformation-reset:hover {
+.transformation-section .transformation-reset:hover {
   color: #111;
   background: #ff8c24;
+  border-color: #ff8c24;
+}
+
+.transformation-option {
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.transformation-option:hover,
+.transformation-option.selected {
+  transform: translateX(3px);
+}
+
+.transformation-option.selected {
+  box-shadow: inset 3px 0 var(--transformation-color);
+}
+
+.transformation-option-dot {
+  transition: transform 0.25s ease;
+}
+
+.transformation-option.selected .transformation-option-dot {
+  transform: scale(1.35);
+  animation: selected-ki 1.4s ease-in-out infinite alternate;
+}
+
+.transformation-display {
+  animation: transformation-enter 0.45s ease both;
+}
+
+.transformation-power strong {
+  animation: power-arrive 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.transformation-aura {
+  animation:
+    transformation-pulse 2.5s ease-in-out infinite alternate,
+    aura-turn 12s linear infinite;
+}
+
+.transformation-image {
+  animation:
+    transformation-enter 0.45s ease,
+    portrait-float 4s ease-in-out 0.45s infinite;
+}
+
+.transformation-section .transformation-reset:hover {
+  box-shadow: 0 0 22px #ff8c2440;
+  transform: translateY(-2px);
+}
+
+.transformation-section .transformation-reset:focus-visible {
+  outline: 2px solid #ffb46d;
+  outline-offset: 3px;
+}
+
+.transformation-section .transformation-reset:active {
+  transform: translateY(0);
+}
+
+@keyframes power-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes selected-ki {
+  from {
+    box-shadow: 0 0 5px var(--transformation-color);
+  }
+  to {
+    box-shadow: 0 0 15px var(--transformation-color);
+  }
+}
+
+@keyframes aura-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes portrait-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
 }
 
 @keyframes transformation-pulse {
