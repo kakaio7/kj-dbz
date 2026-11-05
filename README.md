@@ -1,20 +1,30 @@
-# React + Vite
+# KJ-DBZ
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicativo front-end em React + Vite para explorar raças, poderes e colecionáveis do universo Dragon Ball.
 
-Currently, two official plugins are available:
+## Segurança e boas práticas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Nenhuma chave secreta, token ou API key foi deixada no front-end.
+- Caso seja adicionado um backend real no futuro, qualquer credencial sensível deve ficar em variáveis de ambiente do servidor e nunca no bundle do cliente.
+- O projeto usa armazenamento local somente para dados não-sensíveis do navegador (favoritos e coleção local).
+- A coleção das esferas funciona como uma caça progressiva: o Radar do Dragão libera um enigma por vez, e somente a resposta correta confirma a esfera. Uma dica pode ser aberta em cada enigma; respostas erradas não consomem tentativas.
+- Ao completar a coleção, o Guardião do Desejo abre uma cena animada e permite registrar um único desejo neste navegador. Como é uma experiência sem backend, esse progresso local não é uma recompensa protegida por conta.
+- O build e o preview têm cabeçalhos de segurança para reduzir risco de execução de conteúdo malicioso.
 
-## React Compiler
+## Estrutura
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/config/app.js`: configurações públicas do app e chaves de armazenamento.
+- `src/utils/storage.js`: leitura e escrita sanitizadas de dados no localStorage.
+- `src/components`: componentes visuais da interface.
+- `public/images`: imagens locais do projeto.
 
-## Expanding the Oxlint configuration
+## Variáveis de ambiente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Use o arquivo `.env.example` como referência. Nunca envie arquivos `.env` para o repositório.
 
+## Caça às esferas
+
+A versão da coleção foi atualizada para suportar os enigmas. O progresso manual salvo por versões anteriores é reiniciado uma vez; o desejo já concedido continua salvo separadamente no navegador.
 
 ## Imagens incluídas
 
