@@ -40,7 +40,6 @@ export function writeStoredNumberArray(key, values) {
 
     window.localStorage.setItem(key, JSON.stringify([...new Set(normalized)]))
   } catch {
-    // Ignore storage quota/privacy issues in browser environments.
   }
 }
 
